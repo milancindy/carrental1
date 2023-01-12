@@ -1,0 +1,9 @@
+cd C:\redis
+redis-server.exe redis.windows.conf
+redis.windows.conf修改文件
+#requirepass foobared
+requirepass 123456
+
+jdk1.8 nodejs 12.13.1 redis装在C:\redis
+
+先装nvm再装node

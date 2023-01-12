@@ -2,20 +2,20 @@
 	<div ref="nav" class="ui fixed inverted stackable pointing menu" :class="{'transparent':$route.name==='home' && clientSize.clientWidth>768}">
 		<div class="ui container">
 			<router-link to="/">
-				<h3 class="ui header item m-blue">{{ blogName }}</h3>
+				<h3 class="ui header item m-blue">Dong car rental</h3>
 			</router-link>
 			<router-link to="/home" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='home'}">
-				<i class="home icon"></i>首页
+				<i class="home icon"></i>home
 			</router-link>
 			<el-dropdown trigger="click" @command="categoryRoute">
 				<span class="el-dropdown-link item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='category'}">
-					<i class="idea icon"></i>分类<i class="caret down icon"></i>
+					<i class="idea icon"></i>car list<i class="caret down icon"></i>
 				</span>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item :command="category.name" v-for="(category,index) in categoryList" :key="index">{{ category.name }}</el-dropdown-item>
 				</el-dropdown-menu>
 			</el-dropdown>
-			<router-link to="/archives" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='archives'}">
+			<!-- <router-link to="/archives" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='archives'}">
 				<i class="clone icon"></i>归档
 			</router-link>
 			<router-link to="/moments" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='moments'}">
@@ -23,11 +23,11 @@
 			</router-link>
 			<router-link to="/friends" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='friends'}">
 				<i class="users icon"></i>友人帐
-			</router-link>
+			</router-link> -->
 			<router-link to="/about" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">
-				<i class="info icon"></i>关于我
+				<i class="info icon"></i>contact us
 			</router-link>
-			<el-autocomplete v-model="queryString" :fetch-suggestions="debounceQuery" placeholder="Search..."
+			<!-- <el-autocomplete v-model="queryString" :fetch-suggestions="debounceQuery" placeholder="Search..."
 			                 class="right item m-search" :class="{'m-mobile-hide': mobileHide}"
 			                 popper-class="m-search-item" @select="handleSelect">
 				<i class="search icon el-input__icon" slot="suffix"></i>
@@ -35,7 +35,7 @@
 					<div class="title">{{ item.title }}</div>
 					<span class="content">{{ item.content }}</span>
 				</template>
-			</el-autocomplete>
+			</el-autocomplete> -->
 			<button class="ui menu black icon button m-right-top m-mobile-show" @click="toggle">
 				<i class="sidebar icon"></i>
 			</button>
