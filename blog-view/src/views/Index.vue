@@ -13,7 +13,8 @@
 					<div class="ui stackable grid">
 						<!--左侧-->
 						<div class="three wide column m-mobile-hide">
-							<Introduction :class="{'m-display-none':focusMode}"/>
+							<!-- <Introduction :class="{'m-display-none':focusMode}"/> -->
+							<Carlist :class="{'m-display-none':focusMode}"></Carlist>
 						</div>
 						<!--中间-->
 						<div class="ten wide column">
@@ -55,6 +56,7 @@
 	import Header from "@/components/index/Header";
 	import Footer from "@/components/index/Footer";
 	import Introduction from "@/components/sidebar/Introduction";
+	import Carlist from "@/components/carlist/allcar"
 	import Tags from "@/components/sidebar/Tags";
 	import RandomBlog from "@/components/sidebar/RandomBlog";
 	//import MyAPlayer from "@/components/index/MyAPlayer";
@@ -65,7 +67,7 @@
 
 	export default {
 		name: "Index",
-		components: {Header, BlogPasswordDialog, Tocbot, RandomBlog, Tags, Nav, Footer, Introduction},
+		components: {Header, BlogPasswordDialog, Tocbot, RandomBlog, Tags, Nav, Footer, Introduction,Carlist},
 		data() {
 			return {
 				siteInfo: {
@@ -106,6 +108,7 @@
 				getSite().then(res => {
 					if (res.code === 200) {
 						this.siteInfo = res.data.siteInfo
+						this.siteInfo.blogName="Dong car rental"
 						this.badges = res.data.badges
 						this.newBlogList = res.data.newBlogList
 						this.categoryList = res.data.categoryList

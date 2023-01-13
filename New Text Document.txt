@@ -7,3 +7,5 @@ requirepass 123456
 jdk1.8 nodejs 12.13.1 redis装在C:\redis
 
 先装nvm再装node
+
+idea安装lombok 和mabatisx插件
