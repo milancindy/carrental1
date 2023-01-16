@@ -12,23 +12,21 @@
 				<div class="ui container">
 					<div class="ui stackable grid">
 						<!--左侧-->
-						<div class="three wide column m-mobile-hide">
+						
 							<!-- <Introduction :class="{'m-display-none':focusMode}"/> -->
-							<Carlist :class="{'m-display-none':focusMode}"></Carlist>
-						</div>
+							<Carlist ></Carlist>
 						<!--中间-->
-						<div class="ten wide column">
+						<!-- <div class="ten wide column">
 							<keep-alive include="Home">
 								<router-view/>
 							</keep-alive>
-						</div>
+						</div> -->
 						<!--右侧-->
-						<div class="three wide column m-mobile-hide">
+						<!-- <div class="three wide column m-mobile-hide">
 							<RandomBlog :randomBlogList="randomBlogList" :class="{'m-display-none':focusMode}"/>
-							<Tags :tagList="tagList" :class="{'m-display-none':focusMode}"/>
-							<!--只在文章页面显示目录-->
+							<Tags :tagList="tagList" :class="{'m-display-none':focusMode}"/>							
 							<Tocbot v-if="$route.name==='blog'"/>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

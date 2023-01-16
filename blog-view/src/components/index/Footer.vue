@@ -3,16 +3,16 @@
 		<div class="ui center aligned container">
 			<div class="ui inverted divided stackable grid">
 
-				<div class="three wide column">
+				<div class="ten wide column">
 					<div class="ui link list">
 						<h4 class="ui inverted header m-text-thin m-text-spaced">{{ siteInfo.footerImgTitle }}</h4>
-						<div class="item">
+						<!-- <div class="item">
 							<img :src="siteInfo.footerImgUrl" class="ui rounded image" alt="" style="width: 100px">
-						</div>
+						</div> -->
 					</div>
 				</div>
 
-				<div class="six wide column">
+				<!-- <div class="six wide column">
 					<h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
 					<div class="ui inverted link list">
 						<a href="javascript:;" @click.prevent="toBlog(item)" v-for="item in newBlogList" :key="item.id" class="item m-text-thin m-padded-tb-small">{{ item.title }}</a>
@@ -22,7 +22,7 @@
 				<div class="seven wide column">
 					<p id="hitokotoText" class="m-text-thin m-text-spaced m-opacity-mini">{{ hitokoto.hitokoto }}</p>
 					<p id="hitokotoFrom" class="m-text-thin m-text-spaced m-opacity-mini" style="float: right" v-text="hitokoto.from?`——《${hitokoto.from}》`:''"></p>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="ui inverted section divider"></div>
@@ -34,12 +34,12 @@
 				<a rel="external nofollow noopener" href="https://beian.miit.gov.cn/" target="_blank" style="color:#ffe500">{{ siteInfo.beian }}</a>
 			</p>
 
-			<div class="github-badge" v-for="(item,index) in badges" :key="index">
+			<!-- <div class="github-badge" v-for="(item,index) in badges" :key="index">
 				<a rel="external nofollow noopener" :href="item.url" target="_blank" :title="item.title">
 					<span class="badge-subject">{{ item.subject }}</span>
 					<span class="badge-value" :class="`bg-${item.color}`">{{ item.value }}</span>
 				</a>
-			</div>
+			</div> -->
 
 		</div>
 	</footer>

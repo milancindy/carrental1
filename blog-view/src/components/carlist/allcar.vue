@@ -1,17 +1,17 @@
 <template>
-	<div >
-        <div v-for="item in carlist">
-		<div :key="item.id" class="ui segments m-box">
-			<div class="ui card">
-				<div class="image">
-					<img :src="item.image">
-				</div>
-				<div class="content" align="center">
-					<div class="header">{{ item.name }}</div>
-					<!--彩色滚动字体-->
-					<div id="rollText" class="m-margin-top" v-if="item.feature.length!=0"></div>
-				</div>
-				<!-- <div class="extra content" align="center">
+	<div>
+		<div style="float: left;margin-right: 10px;" v-for="item in carlist">
+			<div :key="item.id" class="ui segments m-box">
+				<div class="ui card">
+					<div class="image">
+						<img style="height:200px !important" :src="item.image">
+					</div>
+					<div class="content" align="center">
+						<div class="header">{{ item.name }}</div>
+						<!--彩色滚动字体-->
+						<div :id="`rollText${item.id}`" class="m-margin-top" v-if="item.remark.length != 0">{{ item.remark }}</div>
+					</div>
+					<!-- <div class="extra content" align="center">
 					<a :href="introduction.github" v-if="introduction.github" target="_blank" class="ui circular icon button">
 						<svg style="width: 1em!important;height: 1em!important;" t="1588657335874" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6878" width="200" height="200">
 							<path d="M0 520.886c0-69.368 13.51-135.697 40.498-199.02 26.987-63.323 63.322-117.826 109.006-163.51 45.65-45.65 100.154-81.985 163.51-109.006A502.289 502.289 0 0 1 512 8.92c69.335 0 135.663 13.477 198.986 40.497 63.356 26.988 117.86 63.323 163.51 109.007 45.684 45.65 82.02 100.154 109.006 163.51A502.289 502.289 0 0 1 1024 520.852c0 111.318-32.504 211.472-97.511 300.494-64.975 88.989-148.48 150.825-250.484 185.476-5.351 0-9.348-0.99-11.99-2.973-2.676-1.982-4.196-3.997-4.526-6.012a59.458 59.458 0 0 1-0.495-8.984 7.663 7.663 0 0 1-0.991-3.006v-128.99c0-40.63-14.336-75.314-43.008-103.986 76.667-13.345 134.011-41.819 171.999-85.487 37.987-43.669 57.013-96.52 57.013-158.522 0-58.005-18.663-108.346-56.022-150.99 13.345-42.678 11-87.668-6.97-135.003-18.697-1.322-39.011 1.85-61.01 9.513-22 7.663-38.318 14.831-49.02 21.47-10.637 6.673-20.316 13.016-28.97 19.027-38.68-10.669-81.854-16.02-129.486-16.02-47.7 0-90.509 5.351-128.529 16.02-7.333-5.35-15.855-11.164-25.5-17.507-9.68-6.342-26.493-14.005-50.507-22.99-23.982-9.018-45.65-12.85-65.008-11.495-18.663 47.996-20.645 93.646-5.979 136.984-36.665 42.678-54.998 92.986-54.998 150.99 0 62.002 18.663 114.689 55.99 157.994 37.326 43.339 94.67 72.01 171.998 86.016a142.303 142.303 0 0 0-39.969 70.029c-56.683 13.972-96.355 3.963-119.015-30.06-42.017-61.308-79.674-83.307-113.003-65.965-4.69 4.657-3.997 9.48 1.982 14.501 6.012 4.988 14.996 11.66 27.02 19.985 11.99 8.357 20.976 17.507 26.987 27.515 0.661 1.322 2.51 6.177 5.517 14.502a831.917 831.917 0 0 0 8.985 23.981c2.973 7.663 8.654 16.186 17.011 25.5 8.324 9.349 18.003 17.178 29.003 23.52 11 6.309 26.161 11 45.485 14.006 19.324 2.972 41.323 3.138 65.998 0.495v100.484c0 0.991-0.165 2.643-0.495 5.021-0.33 2.312-0.991 3.964-1.982 4.955-0.991 1.024-2.345 2.015-4.03 3.039a12.52 12.52 0 0 1-6.474 1.486c-2.676 0-6.012-0.33-10.009-0.99-101.343-35.345-183.825-97.182-247.51-185.51C31.842 731.037 0 631.577 0 520.92z" p-id="6879"></path>
@@ -52,115 +52,125 @@
 						</svg>
 					</a>
 				</div> -->
-				<!-- <div>
+					<div>
 					<el-collapse accordion>
-						<el-collapse-item title="年价" :name="index" v-if="item.title" v-for="(item,index) in introduction.favorites" :key="index">
-							<div>{{ item.content }}</div>
+						<el-collapse-item title="detail">
+							<div>{{ item.feature }}</div>
+						</el-collapse-item>
+						<el-collapse-item :title="`price for year ${item.priceYear}`">
+							<div></div>
+						</el-collapse-item>
+						<el-collapse-item :title="`price for half year ${item.priceHalfyear}`">
+							<div></div>
+						</el-collapse-item>
+						<el-collapse-item :title="`price for season ${item.priceSeason}`">
+							<div></div>
+						</el-collapse-item>
+						<el-collapse-item :title="`price for month ${item.priceMonth}`">
+							<div></div>
 						</el-collapse-item>
 					</el-collapse>
-				</div> -->
+				</div>
+				</div>
 			</div>
 		</div>
-    </div>
 	</div>
 </template>
 
 <script>
-	//import {mapState} from 'vuex'
-    import {getcarlist} from "@/api/carlist";
-	export default {
-		name: "Introduction",
-		// computed: {
-		// 	...mapState(['introduction'])
-		// },
-        data() {
-			return {
-				carlist: []
-			}
-		},
-		watch: {
-			'introduction.rollText'() {
-				if (this.introduction.rollText.length != 0) {
-					//等待 id="rollText"的div加载完毕
-					this.$nextTick(() => {
-						this.rollText()
-					})
-				}
-			}
-		},
-		methods: {
-			rollText() {
-				let r = document.getElementById('rollText')
-				let l = ""
-				let o = this.introduction.rollText.map(function (r) {
-					return r + ""
+//import {mapState} from 'vuex'
+import { getcarlist } from "@/api/carlist";
+export default {
+	name: "Introduction",
+	// computed: {
+	// 	...mapState(['introduction'])
+	// },
+	data() {
+		return {
+			carlist: []
+		}
+	},
+	watch: {
+		'introduction.rollText'() {
+			if (this.introduction.rollText.length != 0) {
+				//等待 id="rollText"的div加载完毕
+				this.$nextTick(() => {
+					this.rollText()
 				})
-				let a = 2
-				let g = 1
-				let s = 5
-				let d = 75
-				let b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"]
-				let c = {text: "", prefixP: -s, skillI: 0, skillP: 0, direction: "forward", delay: a, step: g}
+			}
+		}
+	},
+	methods: {
+		rollText() {
+			let r = document.getElementById('rollText')
+			let l = ""
+			let o = this.introduction.rollText.map(function (r) {
+				return r + ""
+			})
+			let a = 2
+			let g = 1
+			let s = 5
+			let d = 75
+			let b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"]
+			let c = { text: "", prefixP: -s, skillI: 0, skillP: 0, direction: "forward", delay: a, step: g }
 
-				function t() {
-					return b[Math.floor(Math.random() * b.length)]
+			function t() {
+				return b[Math.floor(Math.random() * b.length)]
+			}
+
+			function e() {
+				return String.fromCharCode(94 * Math.random() + 33)
+			}
+
+			function n(r) {
+				for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+					let l = document.createElement("span")
+					l.textContent = e(), l.style.color = t(), n.appendChild(l)
 				}
+				return n
+			}
 
-				function e() {
-					return String.fromCharCode(94 * Math.random() + 33)
-				}
+			function i() {
+				let t = o[c.skillI]
+				c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+			}
 
-				function n(r) {
-					for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-						let l = document.createElement("span")
-						l.textContent = e(), l.style.color = t(), n.appendChild(l)
-					}
-					return n
-				}
-
-				function i() {
-					let t = o[c.skillI]
-					c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-				}
-
-				i()
-			},
-            getcarlist(){
-                getcarlist().then(res => {
-					if (res.code === 200) {
-						this.carlist = res.data						
-					}
-				}).catch(() => {
-					this.msgError("请求车辆列表失败")
-				})
-            }
+			i()
 		},
-        mounted() {
-            this.getcarlist()
-        }
+		getcarlist() {
+			getcarlist().then(res => {
+				this.carlist = res
+			}).catch(() => {
+				this.msgError("请求车辆列表失败")
+			})
+		}
+	},
+	mounted() {
+		this.getcarlist()
 	}
+}
 </script>
 
 <style scoped>
-	.ui.circular.icon.button {
-		width: 38px;
-	}
+.ui.circular.icon.button {
+	width: 38px;
+}
 
-	#rollText {
-		font-size: 15px;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
+#rollText {
+	font-size: 15px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 </style>
 
 <style>
-	.el-collapse-item {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
+.el-collapse-item {
+	padding-left: 15px;
+	padding-right: 15px;
+}
 
-	.el-collapse-item .el-collapse-item__content {
-		padding-bottom: 10px;
-	}
+.el-collapse-item .el-collapse-item__content {
+	padding-bottom: 10px;
+}
 </style>

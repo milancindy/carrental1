@@ -7,14 +7,17 @@
 			<router-link to="/home" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='home'}">
 				<i class="home icon"></i>home
 			</router-link>
-			<el-dropdown trigger="click" @command="categoryRoute">
+			<router-link to="/about" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">
+				<i class="idea icon"></i>car list
+			</router-link>
+			<!-- <el-dropdown trigger="click" @command="categoryRoute">
 				<span class="el-dropdown-link item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='category'}">
-					<i class="idea icon"></i>car list<i class="caret down icon"></i>
+					<i class="idea icon"></i>contact us<i class="caret down icon"></i>
 				</span>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item :command="category.name" v-for="(category,index) in categoryList" :key="index">{{ category.name }}</el-dropdown-item>
 				</el-dropdown-menu>
-			</el-dropdown>
+			</el-dropdown> -->
 			<!-- <router-link to="/archives" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='archives'}">
 				<i class="clone icon"></i>归档
 			</router-link>
