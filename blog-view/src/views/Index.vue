@@ -14,7 +14,9 @@
 						<!--左侧-->
 						
 							<!-- <Introduction :class="{'m-display-none':focusMode}"/> -->
+							<mall></mall>
 							<Carlist ></Carlist>
+							
 						<!--中间-->
 						<!-- <div class="ten wide column">
 							<keep-alive include="Home">
@@ -55,6 +57,7 @@
 	import Footer from "@/components/index/Footer";
 	import Introduction from "@/components/sidebar/Introduction";
 	import Carlist from "@/components/carlist/allcar"
+	import mall from "@/components/mall/mall"
 	import Tags from "@/components/sidebar/Tags";
 	import RandomBlog from "@/components/sidebar/RandomBlog";
 	//import MyAPlayer from "@/components/index/MyAPlayer";
@@ -65,7 +68,7 @@
 
 	export default {
 		name: "Index",
-		components: {Header, BlogPasswordDialog, Tocbot, RandomBlog, Tags, Nav, Footer, Introduction,Carlist},
+		components: {Header, BlogPasswordDialog, Tocbot, RandomBlog, Tags, Nav, Footer, Introduction,Carlist,mall},
 		data() {
 			return {
 				siteInfo: {

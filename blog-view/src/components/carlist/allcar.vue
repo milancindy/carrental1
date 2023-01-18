@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="margin: auto;">
 		<div style="float: left;margin-right: 10px;" v-for="item in carlist">
 			<div :key="item.id" class="ui segments m-box">
 				<div class="ui card">
@@ -81,7 +81,7 @@
 //import {mapState} from 'vuex'
 import { getcarlist } from "@/api/carlist";
 export default {
-	name: "Introduction",
+	name: "allcar",
 	// computed: {
 	// 	...mapState(['introduction'])
 	// },

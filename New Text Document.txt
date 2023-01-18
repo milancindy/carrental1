@@ -13,3 +13,5 @@ idea安装lombok 和mybatisx插件
 
 安装phpstudy
 
+网络图片地址：https://sm.ms/
+
