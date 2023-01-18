@@ -253,7 +253,6 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
 }
 
 .page .dots .dot-active {
@@ -489,8 +488,8 @@ export default {
   border: 1px solid rgba(0, 0, 0, .14);
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);
-
+  box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);  
+  padding-left: 0;
 }
 
 ul.box {
