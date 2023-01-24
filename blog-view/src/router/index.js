@@ -11,6 +11,11 @@ const routes = [
 		meta: {title: '登录'}
 	},
 	{
+		path: '/register',
+		component: () => import('@/views/registory/registnow'),
+		meta: {title: 'register'}
+	},
+	{
 		path: '/',
 		component: () => import('@/views/Index'),
 		redirect: '/home',
