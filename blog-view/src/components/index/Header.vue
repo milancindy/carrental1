@@ -5,7 +5,7 @@
 			
 			<div class="bg1" style="background-image: url('/img/carrental3.jpeg');"></div>
 			<div class="bg2" style="background-image: url('/img/carrental4.jpeg');"></div>
-			<div class="bg3" style="background-image: url('/img/carrental4.jpeg');" v-show="loaded"></div>
+			<div class="bg3" style="background-image: url('/img/carrental4.jpeg');" v-show="loaded"></div>			
 		</div>
 		<div class="text-malfunction" data-word="Dong Car Rental">
 			<div class="line"></div>
@@ -15,6 +15,70 @@
 		</div>
 		<div class="wave1" style="background: url('/img/wave1.png') repeat-x;"></div>
 		<div class="wave2" style="background: url('/img/wave2.png') repeat-x;"></div>
+		<div style="position: absolute;top: 200px;">
+			<div style="margin:20px" class="ui link three doubling cards">
+				<a  rel="external nofollow noopener" class="card" style="background-color: blanchedalmond;"
+				    @click="showroute('car')">
+					<div class="image">
+						<img src="https://s2.loli.net/2023/01/20/ULXlJpIdr2Rmbu9.jpg" >
+					</div>
+					<div class="content">
+						<div class="header">car</div>
+						<div class="description">Let's rent a car in low price</div>
+					</div>
+				</a>
+				<a  rel="external nofollow noopener" class="card" style="background-color: blanchedalmond;"
+				    @click="showroute('car')">
+					<div class="image">
+						<img  src="https://s2.loli.net/2023/01/20/j9WpwqSVImMQzi3.jpg" >
+					</div>
+					<div class="content">
+						<div class="header">house</div>
+						<div class="description">cozy house</div>
+					</div>
+				</a>
+				<a  rel="external nofollow noopener" class="card" style="background-color: blanchedalmond;"
+				    @click="showroute('car')">
+					<div class="image">
+						<img  src="https://s2.loli.net/2023/01/20/725D6ITEyLCzsNw.jpg" >
+					</div>
+					<div class="content">
+						<div class="header">cleaning</div>
+						<div class="description">home maintenance</div>
+					</div>
+				</a>
+				<a  rel="external nofollow noopener" class="card" style="background-color: blanchedalmond;"
+				    @click="showroute('car')">
+					<div class="image">
+						<img  src="https://s2.loli.net/2023/01/24/9wD4xL5hPlKdByA.jpg" >
+					</div>
+					<div class="content">
+						<div class="header">furniture and appliances rental</div>
+						<div class="description">furniture and appliances rental</div>
+					</div>
+				</a>
+				<a  rel="external nofollow noopener" class="card" style="background-color: blanchedalmond;"
+				    @click="showroute('car')">
+					<div class="image">
+						<img  src="https://s2.loli.net/2023/01/24/M4SgmTIZ3chFqkj.jpg" >
+					</div>
+					<div class="content">
+						<div class="header">re-condition appliance sale</div>
+						<div class="description">re-condition appliance sale</div>
+					</div>
+				</a>
+				<a  rel="external nofollow noopener" class="card" style="background-color: blanchedalmond;"
+				    @click="showroute('car')">
+					<div class="image">
+						<img  src="https://s2.loli.net/2023/01/24/SGzY2LWVCrkB9K5.jpg" >
+					</div>
+					<div class="content">
+						<div class="header">new appliances and furniture sale</div>
+						<div class="description">new appliances and furniture sale</div>
+					</div>
+				</a>
+			</div>
+		</div>
 	</header>
 </template>
 
@@ -67,6 +131,11 @@
 			//平滑滚动至正文部分
 			scrollToMain() {
 				window.scrollTo({top: this.clientSize.clientHeight, behavior: 'smooth'})
+			},
+			showroute(obj){
+				if(obj=='car'){
+				this.$router.push({path:"/car"})
+				}
 			}
 		},
 	}
@@ -125,7 +194,7 @@
 
 	.text-malfunction {
 		position: absolute;
-		top: 40%;
+		top: 70%;
 		left: 51.5%;
 		transform: translate(-50%, -50%) scale(2.5);
 		width: 280px;
@@ -287,5 +356,9 @@
 		height: 90px;
 		width: calc(100% + 100px);
 		left: -100px;
+	}
+	.ui.three.cards>.card{
+		width: calc(17% - 2em);
+		margin: auto;
 	}
 </style>

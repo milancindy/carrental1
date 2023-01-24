@@ -7,8 +7,14 @@
 			<router-link to="/home" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='home'}">
 				<i class="home icon"></i>home
 			</router-link>
-			<router-link to="/about" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">
-				<i class="idea icon"></i>car list
+			<router-link to="/car" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='car'}">
+				<i class="idea icon"></i>car
+			</router-link>
+			<router-link to="/car" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='house'}">
+				<i class="clone icon"></i>house rental
+			</router-link>
+			<router-link to="/car" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='house'}">
+				<i class="comment icon"></i>cleaning
 			</router-link>
 			<!-- <el-dropdown trigger="click" @command="categoryRoute">
 				<span class="el-dropdown-link item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='category'}">
