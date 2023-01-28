@@ -36,13 +36,13 @@ public interface ContentService {
 //     */
 //    int updateContent(TbPanelContent tbPanelContent);
 //
-//    /**
-//     * 通过id获取板块内容
-//     * @param id
-//     * @return
-//     */
-//    TbPanelContent getTbPanelContentById(int id);
-//
+    /**
+     * 通过id获取板块内容
+     * @param id
+     * @return
+     */
+    TbPanelContent getTbPanelContentById(int id);
+
     /**
      * 获取首页数据
      * @return

@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.expression.ExpressionException;
 import org.springframework.stereotype.Service;
 import top.naccl.common.utils.DtoUtil;
 import top.naccl.entity.manager.dto.front.AllGoodsResult;
@@ -168,6 +169,17 @@ public class ContentServiceImpl  implements ContentService {
 
         return list;
     }
+
+    @Override
+    public TbPanelContent getTbPanelContentById(int id) {
+
+        TbPanelContent tbPanelContent=tbPanelContentMapper.selectByPrimaryKey(id);
+        if(tbPanelContent==null){
+            throw new ExpressionException("通过id获取板块内容失败");
+        }
+        return tbPanelContent;
+    }
+
     List<TbPanel> getTbPanelAndContentsById(Integer panelId){
 
         List<TbPanel> list=new ArrayList<>();

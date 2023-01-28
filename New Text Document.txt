@@ -44,3 +44,5 @@ new UglifyJsPlugin({
 
  java -jar XXX.jar
 
+直接吧dist下的文件拷到static下，可能会有static/static/...js的情况
+
