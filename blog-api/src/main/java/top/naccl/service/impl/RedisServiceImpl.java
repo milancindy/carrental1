@@ -96,6 +96,12 @@ public class RedisServiceImpl implements RedisService {
 	}
 
 	@Override
+	public Object getStringByKey(String key) {
+		Object redisResult = jsonRedisTemplate.opsForValue().get(key);
+		return  redisResult;
+	}
+
+	@Override
 	public void incrementByKey(String key, int increment) {
 		if (increment < 0) {
 			throw new RuntimeException("递增因子必须大于0");
@@ -111,6 +117,11 @@ public class RedisServiceImpl implements RedisService {
 	@Override
 	public void saveValueToSet(String key, Object value) {
 		jsonRedisTemplate.opsForSet().add(key, value);
+	}
+
+	@Override
+	public void saveValueToString(String key, String value) {
+		jsonRedisTemplate.opsForValue().set(key,value);
 	}
 
 	@Override

@@ -31,11 +31,15 @@ public interface RedisService {
 
 	<T> T getObjectByValue(String key, Class t);
 
+	Object getStringByKey(String key);
+
 	void incrementByKey(String key, int increment);
 
 	void saveObjectToValue(String key, Object object);
 
 	void saveValueToSet(String key, Object value);
+
+	void saveValueToString(String key,String value);
 
 	int countBySet(String key);
 

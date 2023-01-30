@@ -14,6 +14,7 @@ import top.naccl.service.RedisService;
 import top.naccl.service.mall.LoginService;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -51,8 +52,9 @@ public class LoginServiceImpl implements LoginService {
         Member member= DtoUtil.TbMemer2Member(tbMember);
         member.setToken(token);
         member.setState(1);
+        String s = new Gson().toJson(member);
         // 用户信息写入redis：key："SESSION:token" value："user"
-        jedisClient.saveValueToSet("SESSION:" + token, new Gson().toJson(member));
+        jedisClient.saveValueToString("SESSION:" + token, s);
         jedisClient.expire("SESSION:" + token, SESSION_EXPIRE);
 
         return member;
@@ -62,7 +64,7 @@ public class LoginServiceImpl implements LoginService {
     public Member getUserByToken(String token) {
 
         String value="SESSION:" + token;
-        String json = jedisClient.getMapByValue(value).toString();
+       Object json= jedisClient.getStringByKey(value);
         if (json==null) {
             Member member=new Member();
             member.setState(0);
@@ -71,7 +73,7 @@ public class LoginServiceImpl implements LoginService {
         }
         //重置过期时间
         jedisClient.expire("SESSION:" + token, SESSION_EXPIRE);
-        Member member = new Gson().fromJson(json,Member.class);
+        Member member = new Gson().fromJson(json.toString(),Member.class);
         return member;
     }
 
