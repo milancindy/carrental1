@@ -5,6 +5,12 @@ redis.windows.conf修改文件
 #requirepass foobared
 requirepass 123456
 
+//进入redis
+cd C:\redis
+redis-cli -p 6379
+auth 123456
+keys *
+
 先装nvm再装node
 
 jdk1.8 nodejs 12.13.1 redis装在C:\redis
