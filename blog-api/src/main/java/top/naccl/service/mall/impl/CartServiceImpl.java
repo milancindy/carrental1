@@ -34,7 +34,7 @@ public class CartServiceImpl implements CartService {
     public int addCart(long userId, long itemId, int num) {
 
         //hash: "key:用户id" field："商品id" value："商品信息"
-        Object hexists = jedisClient.getStringByKey(CART_PRE + ":" + userId+":"+itemId + "");
+        Object hexists = jedisClient.getValueByHashKey(CART_PRE + ":" + userId,itemId + "");
         //如果存在数量相加
         if (hexists!=null) {
                 CartProduct cartProduct = new Gson().fromJson(hexists.toString(),CartProduct.class);
@@ -86,9 +86,10 @@ public class CartServiceImpl implements CartService {
     @Override
     public int checkAll(long userId,String checked) {
 
-        List<CartProduct> jsonList = jedisClient.getListByValue(CART_PRE + ":" + userId);
-
-        for (CartProduct cartProduct : jsonList) {
+        //List<CartProduct> jsonList = jedisClient.getListByValue(CART_PRE + ":" + userId);
+        Map<String,String> mapByHash = jedisClient.getMapByHash(CART_PRE + ":" + userId);
+        for (Map.Entry<String, String> entry : mapByHash.entrySet()) {
+            CartProduct cartProduct = new Gson().fromJson(entry.getValue().toString(),CartProduct.class);
             if("true".equals(checked)) {
                 cartProduct.setChecked("1");
             }else if("false".equals(checked)) {
@@ -112,9 +113,10 @@ public class CartServiceImpl implements CartService {
     @Override
     public int delChecked(long userId) {
 
-        List<String> jsonList = jedisClient.getListByValue(CART_PRE+":"+userId);
-        for (String json : jsonList) {
-            CartProduct cartProduct = new Gson().fromJson(json,CartProduct.class);
+       // List<String> jsonList = jedisClient.getListByValue(CART_PRE+":"+userId);
+        Map<String,String> mapByHash = jedisClient.getMapByHash(CART_PRE + ":" + userId);
+        for (Map.Entry<String, String> entry : mapByHash.entrySet()) {
+            CartProduct cartProduct = new Gson().fromJson(entry.getValue().toString(),CartProduct.class);
             if("1".equals(cartProduct.getChecked())) {
                 jedisClient.deleteByHashKey(CART_PRE+":"+userId, cartProduct.getProductId()+"");
             }
